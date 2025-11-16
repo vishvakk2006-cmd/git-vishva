@@ -126,6 +126,22 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
 }
 
+.logo-img {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 35px;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
