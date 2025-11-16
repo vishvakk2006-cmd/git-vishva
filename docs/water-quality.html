@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Map - Aqua Loop</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.svg" alt="Aqua Loop Logo" class="logo-img">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="inputs.html">Inputs</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="water-quality.html" class="active">Water Quality</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Water Quality Content -->
+    <div class="map-container">
+        <div class="container">
+            <h1 class="page-title">Water Quality Map</h1>
+            <p class="page-subtitle">Track water contamination levels across Indian states and cities</p>
+
+            <!-- Filters -->
+            <div class="map-filters">
+                <select id="stateFilter">
+                    <option value="">All States</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                <select id="cityFilter">
+                    <option value="">All Cities</option>
+                </select>
+                <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+            </div>
+
+            <!-- Map -->
+            <div class="map-wrapper">
+                <div id="waterQualityMap" style="height: 500px; border-radius: 8px;"></div>
+            </div>
+
+            <!-- Quality Details -->
+            <div id="qualityDetails" style="display: none;">
+                <h2 style="margin-bottom: 1rem;">Water Quality Details</h2>
+                <div class="quality-details" id="qualityDetailsContent">
+                    <!-- Details will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="dashboard-card" style="margin-top: 2rem;">
+                <h3>Quality Index Legend</h3>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="quality-indicator good">Good</div>
+                        <span>70-100 (Safe for consumption)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="quality-indicator moderate">Moderate</div>
+                        <span>50-69 (Requires treatment)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="quality-indicator poor">Poor</div>
+                        <span>0-49 (Not safe for consumption)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/water-quality.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Aqua Loop</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.svg" alt="Aqua Loop Logo" class="logo-img">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="inputs.html">Inputs</a></li>
+                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="water-quality.html">Water Quality</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Insights Content -->
+    <div class="insights-container">
+        <div class="container">
+            <h1 class="page-title">Your Insights</h1>
+            <p class="page-subtitle">Personalized recommendations and impact analysis</p>
+
+            <!-- Weekly Insights -->
+            <div class="dashboard-card" style="margin-bottom: 2rem;">
+                <h2>Weekly Insights</h2>
+                <div class="dashboard-grid">
+                    <div>
+                        <canvas id="weeklyTrendChart"></canvas>
+                    </div>
+                    <div>
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations-section">
+                <h2 style="margin-bottom: 1.5rem;">Personalized Recommendations</h2>
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <!-- Recommendations will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Optimization Plan -->
+            <div class="dashboard-card" style="margin-top: 2rem;">
+                <h2>Optimization Plan</h2>
+                <div id="optimizationPlan">
+                    <!-- Plan will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Challenges -->
+            <div class="challenges-section" style="margin-top: 3rem;">
+                <h2 style="margin-bottom: 1.5rem;">Challenges to Improve Your Score</h2>
+                <div class="challenges-grid" id="challengesGrid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>Reduce Shower Time</h3>
+                            <span class="priority-badge medium">Active</span>
+                        </div>
+                        <p>Try to reduce your shower time by 2 minutes this week</p>
+                        <div class="challenge-progress">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Progress</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress-bar-fill">
+                                <div class="progress-bar-value" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>Fix Water Leaks</h3>
+                            <span class="priority-badge high">High Priority</span>
+                        </div>
+                        <p>Check and fix any water leaks in your home</p>
+                        <div class="challenge-progress">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Progress</span>
+                                <span>0%</span>
+                            </div>
+                            <div class="progress-bar-fill">
+                                <div class="progress-bar-value" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>Reduce Plastic Waste</h3>
+                            <span class="priority-badge low">Ongoing</span>
+                        </div>
+                        <p>Reduce plastic waste by 20% this month</p>
+                        <div class="challenge-progress">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Progress</span>
+                                <span>35%</span>
+                            </div>
+                            <div class="progress-bar-fill">
+                                <div class="progress-bar-value" style="width: 35%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="dashboard-card" style="margin-top: 3rem;">
+                <h2>Society Ranking</h2>
+                <div id="leaderboard">
+                    <!-- Leaderboard will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/insights.js"></script>
+</body>
+</html>
+
