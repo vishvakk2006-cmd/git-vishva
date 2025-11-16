@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Aqua Loop</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>Aqua Loop</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="inputs.html">Inputs</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="water-quality.html">Water Quality</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+            <div class="nav-auth">
+                <span id="userEmail" style="margin-right: 1rem; color: var(--text-secondary);"></span>
+                <button class="btn btn-outline" id="logoutBtn">Logout</button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <h1 class="page-title">Your Dashboard</h1>
+            
+            <!-- Quick Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card-large">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #0ea5e9, #06b6d4);">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Water Saved</h3>
+                        <div class="stat-value" id="waterSaved">0</div>
+                        <div class="stat-unit">Liters</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +12% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-large">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Waste Diverted</h3>
+                        <div class="stat-value" id="wasteDiverted">0</div>
+                        <div class="stat-unit">kg</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +8% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-large">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Carbon Impact</h3>
+                        <div class="stat-value" id="carbonImpact">0</div>
+                        <div class="stat-unit">kg CO₂</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +15% this week
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-large">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Society Ranking</h3>
+                        <div class="stat-value" id="ranking">#0</div>
+                        <div class="stat-unit">Position</div>
+                        <div class="stat-change">
+                            <a href="insights.html" style="color: var(--primary-color);">View Leaderboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Water Usage Trend</h3>
+                    <canvas id="waterChart"></canvas>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Waste Generation</h3>
+                    <canvas id="wasteChart"></canvas>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Carbon Impact Over Time</h3>
+                    <canvas id="carbonChart"></canvas>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-feed" id="activityFeed">
+                        <div class="activity-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="activity-content">
+                                <p><strong>Input submitted</strong></p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-trophy"></i>
+                            <div class="activity-content">
+                                <p><strong>Challenge completed!</strong></p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <a href="inputs.html" class="action-card">
+                        <i class="fas fa-edit"></i>
+                        <span>Update Inputs</span>
+                    </a>
+                    <a href="insights.html" class="action-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>View Insights</span>
+                    </a>
+                    <a href="water-quality.html" class="action-card">
+                        <i class="fas fa-map"></i>
+                        <span>Check Water Quality</span>
+                    </a>
+                    <a href="profile.html" class="action-card">
+                        <i class="fas fa-user"></i>
+                        <span>Profile Settings</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
